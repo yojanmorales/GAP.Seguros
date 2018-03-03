@@ -27,6 +27,12 @@ namespace GAP.Procesos.Model.Migrations
                      new TipoCubrimiento() { Nombre = "Pérdida" }
                      );
 
+            context.Cliente.AddOrUpdate(x => x.Nombre,
+                    new Cliente() { Nombre = "Elena Martinez", Identificacion = "1128" },
+                    new Cliente() { Nombre = "Incendio", Identificacion = "1129" }
+
+                    );
+
         }
     }
 }

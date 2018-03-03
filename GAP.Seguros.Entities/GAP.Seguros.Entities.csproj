@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="Enums\EstadosEnum.cs" />
     <Compile Include="Enums\RiesgosEnum.cs" />
     <Compile Include="Poliza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

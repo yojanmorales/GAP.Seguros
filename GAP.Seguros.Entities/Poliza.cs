@@ -54,8 +54,22 @@ namespace GAP.Seguros.Entities
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "int", Order = 8)]
         public RiesgosEnum Riesgo { get; set; }
 
+
+        [Required(ErrorMessage = "@El campo es requerido")]
+        [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "int", Order = 9)]
+        public int ClienteId { get; set; }
+
+        [Required(ErrorMessage = "@El campo es requerido")]
+        [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "int", Order = 10)]
+        public EstadosEnum Estado { get; set; }
+
+
         [System.ComponentModel.DataAnnotations.Schema.ForeignKey("TipoCubrimientoId")]
 
         public virtual TipoCubrimiento TipoCubrimiento { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Schema.ForeignKey("ClienteId")]
+
+        public virtual Cliente Cliente { get; set; }
     }
 }

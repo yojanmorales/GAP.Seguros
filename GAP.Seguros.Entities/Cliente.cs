@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GAP.Seguros.Entities
@@ -23,5 +24,13 @@ namespace GAP.Seguros.Entities
         [MaxLength(50)]
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "nvarchar", Order = 2)]
         public string Identificacion { get; set; }
+
+
+        [System.ComponentModel.DataAnnotations.Schema.InverseProperty("Cliente")]
+        public virtual ICollection<Poliza> Polizas
+        {
+            get;
+            set;
+        }
     }
 }
