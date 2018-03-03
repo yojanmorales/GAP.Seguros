@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace GAP.Procesos.Model.Repository.Clientes
 {
-    interface IClientesRepository
+    public interface IClientesRepository
     {
 
-        IEnumerable<Cliente> ObtenerClientes();
+        List<Cliente> ObtenerClientes();
         Cliente ObtenerClientePorId(int clienteId);
     }
 }

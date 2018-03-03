@@ -9,6 +9,6 @@ namespace GAP.Procesos.Model.Repository.TipoCubrimientos
 {
     public interface ITipoCrubimientosRepository
     {
-        IEnumerable<TipoCubrimiento> ObtenerTipoCubrimientos();
+        List<TipoCubrimiento> ObtenerTipoCubrimientos();
     }
 }

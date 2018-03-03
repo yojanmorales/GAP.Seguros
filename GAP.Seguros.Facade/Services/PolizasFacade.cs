@@ -1,20 +1,24 @@
-﻿using GAP.Procesos.Model.Dao;
+﻿using GAP.Procesos.Model.Repository.Polizas;
 using GAP.Seguros.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace GAP.Procesos.Model.Repository.Polizas
+namespace GAP.Seguros.Facade.Services
 {
-    public class PolizasRepository : IPolizasRepository
+    public class PolizasFacade
     {
-
-
-        private readonly PolizasDao _polizasDao;
-
-
-
-        public PolizasRepository()
+        private readonly IPolizasRepository _ContextoRepositorio;
+        public PolizasFacade()
+            : this(new PolizasRepository())
         {
-            _polizasDao = new PolizasDao();
+        }
+
+        public PolizasFacade(IPolizasRepository contextoRepositorio)
+        {
+            this._ContextoRepositorio = contextoRepositorio;
         }
 
 
@@ -24,7 +28,7 @@ namespace GAP.Procesos.Model.Repository.Polizas
         /// <param name="polizas"></param>
         public void CancelarPolizas(List<Poliza> polizas)
         {
-            _polizasDao.CancelarPolizas(polizas);
+            this._ContextoRepositorio.CancelarPolizas(polizas);
         }
 
         /// <summary>
@@ -33,7 +37,7 @@ namespace GAP.Procesos.Model.Repository.Polizas
         /// <param name="poliza"></param>
         public void GuardarPoliza(Poliza poliza)
         {
-            _polizasDao.GuardarPoliza(poliza);
+            this._ContextoRepositorio.GuardarPoliza(poliza);
         }
         /// <summary>
         /// Obtiene las polizas por cliente
@@ -42,7 +46,8 @@ namespace GAP.Procesos.Model.Repository.Polizas
         /// <returns></returns>
         public List<Poliza> ObtenerPolizasPorCliente(int clienteId)
         {
-            return _polizasDao.ObtenerPolizasPorCliente(clienteId);
+            return this._ContextoRepositorio.ObtenerPolizasPorCliente(clienteId);
         }
+
     }
 }

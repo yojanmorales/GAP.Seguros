@@ -31,7 +31,7 @@ namespace GAP.Procesos.Model.Repository.Clientes
         /// Retorna todos los clientes
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Cliente> ObtenerClientes()
+        public List<Cliente> ObtenerClientes()
         {
             return _clientesDao.ObtenerClientes();
         }

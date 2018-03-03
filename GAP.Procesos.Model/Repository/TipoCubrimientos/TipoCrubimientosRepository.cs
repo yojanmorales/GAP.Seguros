@@ -20,7 +20,7 @@ namespace GAP.Procesos.Model.Repository.TipoCubrimientos
         /// Retorna todos los tipos cubrimientos
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<TipoCubrimiento> ObtenerTipoCubrimientos()
+        public List<TipoCubrimiento> ObtenerTipoCubrimientos()
         {
             return _TipoCubrimientoDao.ObtenerTipoCubrimientos();
         }
