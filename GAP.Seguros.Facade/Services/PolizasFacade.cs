@@ -10,7 +10,8 @@ namespace GAP.Seguros.Facade.Services
 {
     public class PolizasFacade
     {
-        private readonly IPolizasRepository _ContextoRepositorio;
+
+        private IPolizasRepository _ContextoRepositorio;
         public PolizasFacade()
             : this(new PolizasRepository())
         {
@@ -20,6 +21,7 @@ namespace GAP.Seguros.Facade.Services
         {
             this._ContextoRepositorio = contextoRepositorio;
         }
+
 
 
         /// <summary>
@@ -37,7 +39,12 @@ namespace GAP.Seguros.Facade.Services
         /// <param name="poliza"></param>
         public void GuardarPoliza(Poliza poliza)
         {
-            this._ContextoRepositorio.GuardarPoliza(poliza);
+            if (poliza.Cobertura > 50 && poliza.Riesgo == Seguros.Entities.Enums.RiesgosEnum.Alto)
+            {
+                throw new System.ArgumentNullException("El porcentaje de cubrimiento no puede ser mayor al 50% cuando el riesgo es alto.");
+
+            }
+            _ContextoRepositorio.GuardarPoliza(poliza);
         }
         /// <summary>
         /// Obtiene las polizas por cliente

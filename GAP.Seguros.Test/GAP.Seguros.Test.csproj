@@ -61,13 +61,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ClientesTest.cs" />
+    <Compile Include="PolizasTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoCubrimientosTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GAP.Procesos.Model\GAP.Procesos.Model.csproj">
+      <Project>{18DE5991-0623-4FAB-8627-B17A81490FBC}</Project>
+      <Name>GAP.Procesos.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAP.Seguros.Entities\GAP.Seguros.Entities.csproj">
+      <Project>{0E4CEA28-158F-429C-A943-8F9B408900FB}</Project>
+      <Name>GAP.Seguros.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GAP.Seguros.Facade\GAP.Seguros.Facade.csproj">
       <Project>{f0fb7ba4-969d-480d-85ff-096775515a9b}</Project>
       <Name>GAP.Seguros.Facade</Name>

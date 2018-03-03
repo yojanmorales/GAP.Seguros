@@ -1,11 +1,8 @@
 ﻿using GAP.Procesos.Model.Context;
 using GAP.Seguros.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GAP.Procesos.Model.Dao
 {
@@ -21,8 +18,6 @@ namespace GAP.Procesos.Model.Dao
 
         internal void GuardarPoliza(Poliza poliza)
         {
-
-
             using (SegurosContext con = new SegurosContext())
             {
                 con.Poliza.Add(poliza);

@@ -6,7 +6,7 @@ namespace GAP.Seguros.Facade.Services
 {
     public class ClientesFacade
     {
-        private readonly IClientesRepository _ContextoRepositorio;
+        private IClientesRepository _ContextoRepositorio;
         public ClientesFacade()
             : this(new ClientesRepository())
         {

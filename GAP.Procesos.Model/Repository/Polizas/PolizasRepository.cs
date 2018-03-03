@@ -1,5 +1,6 @@
 ﻿using GAP.Procesos.Model.Dao;
 using GAP.Seguros.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace GAP.Procesos.Model.Repository.Polizas
@@ -32,7 +33,7 @@ namespace GAP.Procesos.Model.Repository.Polizas
         /// </summary>
         /// <param name="poliza"></param>
         public void GuardarPoliza(Poliza poliza)
-        {
+        {          
             _polizasDao.GuardarPoliza(poliza);
         }
         /// <summary>
