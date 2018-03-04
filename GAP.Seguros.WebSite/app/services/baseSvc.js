@@ -83,7 +83,7 @@
             }).then(function successCallback(response) {
                 deferred.resolve(response);
             }, function errorCallback(response) {
-                deferred.reject(response);
+                deferred.resolve(response);
             });
             return deferred;
         };

@@ -10,7 +10,7 @@ using System.Web.Http.Cors;
 
 namespace GAP.Seguros.Api.Controllers
 {
-   // [Authorize]
+    //[Authorize]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ClientesController : ApiController
     {

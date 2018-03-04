@@ -39,12 +39,18 @@
 
 
                 polizasServices.guardarPoliza($scope.poliza).done(function (response) {
-                    $scope.poliza = {
-                        Riesgo: ''
-                    };
-                    $scope.success = true;
-                    $scope.mensajeError = "";
-                    $scope.ContieneError = false;
+                    if (response.status == 200) {
+                        $scope.poliza = {
+                            Riesgo: ''
+                        };
+                        $scope.success = true;
+                        $scope.ContieneError = false;
+                    } else {
+                        $scope.mensajeError = response.data.message;
+                        $scope.ContieneError = true;
+                        $scope.success = false;
+                    }
+
 
                 });
 
