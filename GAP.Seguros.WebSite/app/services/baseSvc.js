@@ -2,7 +2,7 @@
 (function () {
 
     angular.module("SegurosApp").factory("baseSvc", ["$http", "$q", function ($http, $q) {
-        var urlapi = "http://localhost:51932";
+        var urlapi = "http://localhost:51932/";
         var getRequest = function (query) {
             var deferred = $.Deferred();
 
@@ -13,7 +13,8 @@
                 method: 'GET',
                 url: urlapi + query,
                 headers: {
-                    "Accept": "application/json; odata=verbose"
+                    "Accept": "application/json; odata=verbose",
+                    "User": "UsuarioLogueado"
                 }
 
 

@@ -1,7 +1,7 @@
 "use strict";
 (function () {
 
-    angular.module("SegurosApp").factory("polizasServices", ["baseSvc", function (baseService) {
+    angular.module("SegurosApp").factory("polizasServices", ["baseSvc", "$rootScope", function (baseService, $rootScope) {
 
 
 
@@ -22,7 +22,7 @@
 
         var guardarPoliza = function (data) {
 
-          
+
             var query = "/api/Polizas/GuardarPoliza";
             return baseService.postPoliza(data, query);
 

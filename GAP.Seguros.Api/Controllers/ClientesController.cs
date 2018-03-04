@@ -1,4 +1,5 @@
-﻿using GAP.Seguros.Entities;
+﻿using GAP.Seguros.Api.Filters;
+using GAP.Seguros.Entities;
 using GAP.Seguros.Facade.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace GAP.Seguros.Api.Controllers
 {
-    //[Authorize]
+    [NaiveAuthorizationFilterAttribute]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ClientesController : ApiController
     {
@@ -26,6 +27,7 @@ namespace GAP.Seguros.Api.Controllers
 
         // GET api/Clientes
         [HttpGet]
+        [Authorize]
         public IHttpActionResult ObtenerClientes()
         {
             var clientes = _repository.ObtenerClientes();
@@ -33,6 +35,7 @@ namespace GAP.Seguros.Api.Controllers
         }
         // GET api/Clientes/2
         [HttpGet]
+        [Authorize]
         public IHttpActionResult ObtenerClientePorId(int clienteId)
         {
             var cliente = _repository.ObtenerClientePorId(clienteId);

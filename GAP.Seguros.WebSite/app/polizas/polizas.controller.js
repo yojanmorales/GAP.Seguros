@@ -2,8 +2,13 @@
 (function () {
 
 
-    angular.module("SegurosApp").controller("polizasController", ["$scope", "polizasServices", "$http", "$q",
-        function ($scope, polizasServices, $http, $q) {
+    angular.module("SegurosApp").controller("polizasController", ["$scope", "polizasServices", "$http", "$q", "$rootScope", "$location",
+        function ($scope, polizasServices, $http, $q, $rootScope, $location) {
+
+
+
+
+
 
             $scope.poliza = {
                 Riesgo: ''

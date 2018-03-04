@@ -223,6 +223,7 @@
     <Compile Include="Controllers\PolizasController.cs" />
     <Compile Include="Controllers\TipoCubrimientosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\NaiveAuthorizationFilterAttribute.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +265,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <None Include="Properties\PublishProfiles\gapsegurosapi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gapsegurosapi - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
