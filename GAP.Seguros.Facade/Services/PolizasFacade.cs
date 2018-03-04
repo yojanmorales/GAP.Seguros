@@ -28,9 +28,9 @@ namespace GAP.Seguros.Facade.Services
         /// Cambia de estado las polizas a Cancelada
         /// </summary>
         /// <param name="polizas"></param>
-        public void CancelarPolizas(List<Poliza> polizas)
+        public void CancelarPolizas(Poliza poliza)
         {
-            this._ContextoRepositorio.CancelarPolizas(polizas);
+            this._ContextoRepositorio.CancelarPolizas(poliza);
         }
 
         /// <summary>

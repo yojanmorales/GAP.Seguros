@@ -23,9 +23,9 @@ namespace GAP.Procesos.Model.Repository.Polizas
         /// Cambia de estado las polizas a Cancelada
         /// </summary>
         /// <param name="polizas"></param>
-        public void CancelarPolizas(List<Poliza> polizas)
+        public void CancelarPolizas(Poliza poliza)
         {
-            _polizasDao.CancelarPolizas(polizas);
+            _polizasDao.CancelarPolizas(poliza);
         }
 
         /// <summary>

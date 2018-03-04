@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201803032057055_campos estado poliza.Designer.cs">
       <DependentUpon>201803032057055_campos estado poliza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803040733398_cambiodescripcion.cs" />
+    <Compile Include="Migrations\201803040733398_cambiodescripcion.Designer.cs">
+      <DependentUpon>201803040733398_cambiodescripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Clientes\ClientesRepository.cs" />
@@ -91,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803032057055_campos estado poliza.resx">
       <DependentUpon>201803032057055_campos estado poliza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803040733398_cambiodescripcion.resx">
+      <DependentUpon>201803040733398_cambiodescripcion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -22,7 +22,7 @@ namespace GAP.Seguros.Entities
         [Required(ErrorMessage = "@El campo es requerido")]
         [MaxLength(200)]
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "nvarchar", Order = 2)]
-        public string Descripción { get; set; }
+        public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "@El campo es requerido")]
         [System.ComponentModel.DataAnnotations.Schema.Column(TypeName = "int", Order = 3)]

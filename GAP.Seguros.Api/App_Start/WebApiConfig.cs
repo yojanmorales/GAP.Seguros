@@ -17,8 +17,7 @@ namespace GAP.Seguros.Api
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-            var cors = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(cors);
+            config.EnableCors();
 
             config.Filters.Add(new ValidateModelAttribute());
 

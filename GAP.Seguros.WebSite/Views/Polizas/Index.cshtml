@@ -1,0 +1,215 @@
+﻿
+@{
+    ViewBag.Title = "Polizas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div id="content" ng-controller="polizasController">
+
+    <div class="form-horizontal" role="form">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Cliente:</label>
+                        <div class="col-md-8">
+
+                            <select class="form-control" ng-model="poliza.ClienteId">
+                                <option ng-repeat="cliente in clientesCollection" value="{{cliente.id}}">{{cliente.nombre}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nombre:</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" ng-model="poliza.Nombre">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Descripción:</label>
+                        <div class="col-md-8">
+                            <textarea type="text" class="form-control" ng-model="poliza.Descripcion"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Tipo:</label>
+                        <div class="col-md-8">
+
+                            <select class="form-control" ng-model="poliza.TipoCubrimientoId">
+                                <option ng-repeat="x in tipoCubrimientosCollection" value="{{x.id}}">{{x.nombre}}</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Cobertura:</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" ng-model="poliza.Cobertura">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Validez:</label>
+                        <div class="col-md-8">
+                            <input type="date" class="form-control" ng-model="poliza.Vigencia">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Periodo:</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" placeholder="meses" ng-model="poliza.Periodo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Precio:</label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control" id="inputPrice" ng-model="poliza.Precio">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Riesgo:</label>
+                        <div class="col-md-8">
+                            <select class="form-control" ng-model="poliza.Riesgo">
+                                <option value="1">Bajo</option>
+                                <option value="2">Medio</option>
+                                <option value="3">Medio-Alto</option>
+                                <option value="4">Alto</option>
+                            </select>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-md-offset-5">
+                    <button type="button" class="btn btn-success btn-lg" ng-click="GuardarPoliza()">
+                        <span aria-hidden="true"></span> <span>Guardar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>Polizas por cliente</h2>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Cliente:</label>
+                    <div class="col-md-8">
+
+                        <select class="form-control" ng-model="ClienteSeleccionado">
+                            <option ng-repeat="cliente in clientesCollection" value="{{cliente.id}}">{{cliente.nombre}}</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+                <button type="button" class="btn btn-success btn-lg" ng-click="ObtenerPolizasPorCliente()">
+                    <span aria-hidden="true"></span> <span>Buscar Polizas</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div>
+        <div class="table-responsive">
+            <table cellpadding="12" class="table table-bordered table-hover">
+                <tr>
+                    
+                    <td>
+                        <b>Nombre</b>
+                    </td>
+                    <td>
+                        <b>Descripción</b>
+                    </td>
+                    <td>
+                        <b>Tipo</b>
+                    </td>
+                    <td>
+                        <b>Covertura</b>
+                    </td>
+                    <td>
+                        <b>Vigencia</b>
+                    </td>
+                    <td>
+                        <b>Periodo</b>
+                    </td>
+                    <td>
+                        <b>Precio</b>
+                    </td>
+                    <td>
+                        <b>Riesgo</b>
+                    </td>
+                    <td>
+                        <b>Cancelar</b>
+                    </td>
+                </tr>
+                <tr ng-repeat="poliza in PolizasCliente">
+                   
+                    <td>
+                        {{poliza.nombre}}
+                    </td>
+                    <td>
+                        {{poliza.descripcion}}
+                    </td>
+                    <td>
+                        {{poliza.tipoCubrimientoId}}
+                    </td>
+                    <td>
+                        {{poliza.cobertura}}%
+                    </td>
+                    <td>
+                        {{poliza.vigencia  | date :  "dd.MM.y" }}
+                    </td>
+                    <td>
+                        {{poliza.periodo}}
+                    </td>
+                    <td>
+                        {{poliza.precio | currency}}
+                    </td>
+                    <td>
+                        {{poliza.riesgo}}
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="Deletepolizaurance(poliza)"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/Poliza")
+
+
+
+

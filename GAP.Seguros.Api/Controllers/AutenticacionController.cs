@@ -4,10 +4,12 @@ using Microsoft.Owin.Security;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 
 namespace GAP.Seguros.Api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AutenticacionController : Controller
     {
 

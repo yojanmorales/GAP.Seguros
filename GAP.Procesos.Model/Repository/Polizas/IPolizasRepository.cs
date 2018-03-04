@@ -7,6 +7,6 @@ namespace GAP.Procesos.Model.Repository.Polizas
     {
         List<Poliza> ObtenerPolizasPorCliente(int clienteId);
         void GuardarPoliza(Poliza poliza);
-        void CancelarPolizas(List<Poliza> polizas);
+        void CancelarPolizas(Poliza poliza);
     }
 }

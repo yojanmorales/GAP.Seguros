@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Seguros.Test", "GAP.Seg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Seguros.Api", "GAP.Seguros.Api\GAP.Seguros.Api.csproj", "{E62AE54E-E568-4DAA-BEEC-41C22AB7B254}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAP.Seguros.WebSite", "GAP.Seguros.WebSite\GAP.Seguros.WebSite.csproj", "{A5F51260-E8EE-40C2-A379-C2B104D18D39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{E62AE54E-E568-4DAA-BEEC-41C22AB7B254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E62AE54E-E568-4DAA-BEEC-41C22AB7B254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E62AE54E-E568-4DAA-BEEC-41C22AB7B254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5F51260-E8EE-40C2-A379-C2B104D18D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5F51260-E8EE-40C2-A379-C2B104D18D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5F51260-E8EE-40C2-A379-C2B104D18D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5F51260-E8EE-40C2-A379-C2B104D18D39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{F0FB7BA4-969D-480D-85FF-096775515A9B} = {433F987C-7671-4F82-9B4C-CA0A08BB9B92}
 		{460B51DD-E19C-4229-816B-9E615251D986} = {49F4F524-EEC1-4D53-B6F9-EBA61EA87332}
 		{E62AE54E-E568-4DAA-BEEC-41C22AB7B254} = {433F987C-7671-4F82-9B4C-CA0A08BB9B92}
+		{A5F51260-E8EE-40C2-A379-C2B104D18D39} = {7011D626-125F-4711-B015-F6FF8CCC620A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7D31401-B15F-4859-B086-C1EC24F0E84F}

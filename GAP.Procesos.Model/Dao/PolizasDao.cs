@@ -25,15 +25,14 @@ namespace GAP.Procesos.Model.Dao
             }
         }
 
-        internal void CancelarPolizas(List<Poliza> polizas)
+        internal void CancelarPolizas(Poliza poliza)
         {
             using (SegurosContext con = new SegurosContext())
             {
-                foreach (Poliza poliza in polizas)
-                {
-                    poliza.Estado = Seguros.Entities.Enums.EstadosEnum.Cancelada;
-                    con.Entry(poliza).State = EntityState.Modified;
-                }
+
+                poliza.Estado = Seguros.Entities.Enums.EstadosEnum.Cancelada;
+                con.Entry(poliza).State = EntityState.Modified;
+
 
                 con.SaveChanges();
             }
