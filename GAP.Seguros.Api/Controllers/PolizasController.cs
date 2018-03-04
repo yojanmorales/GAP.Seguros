@@ -28,16 +28,16 @@ namespace GAP.Seguros.Api.Controllers
         // POST api/Poliza
         [HttpPost]
         [Route("api/Polizas/CancelarPolizas")]
-        public IHttpActionResult CancelarPolizas([FromBody]List<Poliza> polizas)
+        public IHttpActionResult CancelarPolizas([FromBody]Poliza poliza)
         {
             try
             {
-                _repository.CancelarPolizas(polizas);
-                return Ok();
+                _repository.CancelarPolizas(poliza);
+                return Ok("Se guardó correctamente");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
 
         }

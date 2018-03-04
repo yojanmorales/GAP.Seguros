@@ -70,7 +70,44 @@
                     Riesgo: data.Riesgo,
                     ClienteId: data.ClienteId,
                     Estado: 1,
-                    Id : 0
+                    Id: 0
+
+
+                }),
+
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+
+
+            }).then(function successCallback(response) {
+                deferred.resolve(response);
+            }, function errorCallback(response) {
+                deferred.reject(response);
+            });
+            return deferred;
+        };
+
+        var postPolizaCancelar = function (data, url) {
+            var deferred = $.Deferred();
+
+
+            $http({
+                method: 'POST',
+                url: urlapi + url,
+
+                data: $.param({
+                    Nombre: data.nombre,
+                    Descripcion: data.descripcion,
+                    TipoCubrimientoId: data.tipoCubrimientoId,
+                    Cobertura: data.cobertura,
+                    Vigencia: data.vigencia,
+                    Periodo: data.periodo,
+                    Precio: data.precio,
+                    Riesgo: data.riesgo,
+                    ClienteId: data.clienteId,
+                    Estado: 2,
+                    Id: data.id
 
 
                 }),
@@ -131,7 +168,8 @@
             postLogin: postLogin,
             postPoliza: postPoliza,
             updateRequest: updateRequest,
-            deleteRequest: deleteRequest
+            deleteRequest: deleteRequest,
+            postPolizaCancelar: postPolizaCancelar
 
         };
     }]);

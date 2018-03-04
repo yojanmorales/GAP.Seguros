@@ -8,7 +8,7 @@
 
 
 <div id="content" ng-controller="polizasController">
-
+    <br />
     <div class="form-horizontal" role="form">
         <div class="container">
 
@@ -110,6 +110,18 @@
             </div>
         </div>
     </div>
+
+    <div class="alert alert-success" ng-show="success">
+
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        Se guardó correctamente
+    </div>
+
+    <div class="alert alert-danger" ng-show="ContieneError">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{mensajeError}}
+    </div>
+
     <h2>Polizas por cliente</h2>
     <div class="container">
 
@@ -137,13 +149,22 @@
             </div>
         </div>
 
+
+        <div class="row" ng-show="cargando">
+            <div class="col-md-6 col-md-offset-5">
+                <div class="alert alert-warning">
+                    Estamos procesando la información
+                </div>
+            </div>
+        </div>
+
     </div>
     <br />
     <div>
         <div class="table-responsive">
             <table cellpadding="12" class="table table-bordered table-hover">
                 <tr>
-                    
+
                     <td>
                         <b>Nombre</b>
                     </td>
@@ -173,7 +194,7 @@
                     </td>
                 </tr>
                 <tr ng-repeat="poliza in PolizasCliente">
-                   
+
                     <td>
                         {{poliza.nombre}}
                     </td>
@@ -199,7 +220,7 @@
                         {{poliza.riesgo}}
                     </td>
                     <td>
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="Deletepolizaurance(poliza)"></span>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true" ng-click="CancelarPoliza(poliza)"></span>
                     </td>
                 </tr>
             </table>

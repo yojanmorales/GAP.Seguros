@@ -9,8 +9,10 @@
                 Riesgo: ''
             };
             $scope.ClienteSeleccionado = "";
-
-
+            $scope.success = false;
+            $scope.cargando = false;
+            $scope.mensajeError = "";
+            $scope.ContieneError = false;
             polizasServices.obtenerClientes().done(function (response) {
                 $scope.clientesCollection = response.data;
 
@@ -34,18 +36,35 @@
                 }
 
                 $scope.poliza.Vigencia = dd + '/' + mm + '/' + yyyy;
+
+
                 polizasServices.guardarPoliza($scope.poliza).done(function (response) {
                     $scope.poliza = {
                         Riesgo: ''
                     };
+                    $scope.success = true;
+                    $scope.mensajeError = "";
+                    $scope.ContieneError = false;
 
                 });
+
+
             };
 
             $scope.ObtenerPolizasPorCliente = function () {
+                $scope.success = false;
+                $scope.cargando = true;
                 polizasServices.ObtenerPolizasPorCliente($scope.ClienteSeleccionado).done(function (response) {
                     $scope.PolizasCliente = response.data;
+                    $scope.cargando = false;
 
+                });
+            }
+
+            $scope.CancelarPoliza = function (poliza) {
+                $scope.cargando = true;
+                polizasServices.CancelarPoliza(poliza).done(function (response) {
+                    $scope.ObtenerPolizasPorCliente();
                 });
             }
 

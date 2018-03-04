@@ -21,8 +21,17 @@
 
 
         var guardarPoliza = function (data) {
+
+          
             var query = "/api/Polizas/GuardarPoliza";
             return baseService.postPoliza(data, query);
+
+        }
+
+        var CancelarPoliza = function (data) {
+            var query = "/api/Polizas/CancelarPolizas";
+
+            return baseService.postPolizaCancelar(data, query);
 
         }
 
@@ -33,7 +42,8 @@
             obtenerTipoCubrimientos: obtenerTipoCubrimientos,
             obtenerTipoCubrimientos: obtenerTipoCubrimientos,
             guardarPoliza: guardarPoliza,
-            ObtenerPolizasPorCliente: ObtenerPolizasPorCliente
+            ObtenerPolizasPorCliente: ObtenerPolizasPorCliente,
+            CancelarPoliza: CancelarPoliza
         };
     }]);
 })();
