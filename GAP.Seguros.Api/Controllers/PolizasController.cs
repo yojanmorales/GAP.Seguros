@@ -1,4 +1,5 @@
-﻿using GAP.Seguros.Entities;
+﻿using GAP.Seguros.Api.Filters;
+using GAP.Seguros.Entities;
 using GAP.Seguros.Facade.Services;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Http;
 
 namespace GAP.Seguros.Api.Controllers
 {
+
     public class PolizasController : ApiController
     {
 
@@ -24,6 +26,7 @@ namespace GAP.Seguros.Api.Controllers
 
         // POST api/Poliza
         [HttpPost]
+        [Route("api/Polizas/CancelarPolizas")]
         public IHttpActionResult CancelarPolizas([FromBody]List<Poliza> polizas)
         {
             try
@@ -40,16 +43,27 @@ namespace GAP.Seguros.Api.Controllers
 
         // POST api/Poliza
         [HttpPost]
-        public IHttpActionResult GuardarPoliza([FromBody]Poliza poliza)
+        [Route("api/Polizas/GuardarPoliza")]
+        [ValidateModel]
+        public HttpResponseMessage GuardarPoliza([FromBody]Poliza poliza)
         {
             try
             {
-                this._repository.GuardarPoliza(poliza);
-                return Ok();
+                if (this.ModelState.IsValid)
+                {
+                    this._repository.GuardarPoliza(poliza);
+                    return new HttpResponseMessage(HttpStatusCode.OK);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+
             }
         }
         // GET api/Polizas/2

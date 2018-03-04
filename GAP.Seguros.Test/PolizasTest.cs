@@ -15,7 +15,7 @@ namespace GAP.Seguros.Test
 
         private Mock<IPolizasRepository> polizasMock = null;
         private PolizasFacade facade = null;
-
+        
 
         [TestInitialize]
         public void InitializeTest()
@@ -37,7 +37,7 @@ namespace GAP.Seguros.Test
                         Nombre = "Poliza todo vida",
                         Descripción = "Cubre incapacidad por accidente",
                         TipoCubrimientoId = 1,
-                        Vigencia = new DateTime(),
+                        Vigencia = DateTime.Now,
                         Periodo = 24,
                         Precio = 120000,
                         Riesgo = Entities.Enums.RiesgosEnum.Alto,
@@ -49,7 +49,7 @@ namespace GAP.Seguros.Test
                         Nombre = "Poliza todo vida",
                         Descripción = "Cubre incapacidad por accidente",
                         TipoCubrimientoId = 1,
-                        Vigencia = new DateTime(),
+                        Vigencia = DateTime.Now,
                         Periodo = 24,
                         Precio = 120000,
                         Riesgo = Entities.Enums.RiesgosEnum.Alto,
@@ -61,7 +61,7 @@ namespace GAP.Seguros.Test
                         Nombre = "Poliza todo vida",
                         Descripción = "Cubre incapacidad por accidente",
                         TipoCubrimientoId = 1,
-                        Vigencia = new DateTime(),
+                        Vigencia = DateTime.Now,
                         Periodo = 24,
                         Precio = 120000,
                         Riesgo = Entities.Enums.RiesgosEnum.Alto,
@@ -88,7 +88,7 @@ namespace GAP.Seguros.Test
                 Nombre = "Poliza todo vida",
                 Descripción = "Cubre incapacidad por accidente",
                 TipoCubrimientoId = 1,
-                Vigencia = new DateTime(),
+                Vigencia = DateTime.Now,
                 Periodo = 24,
                 Precio = 120000,
                 Riesgo = Entities.Enums.RiesgosEnum.Alto,
@@ -101,5 +101,32 @@ namespace GAP.Seguros.Test
 
             this.facade.GuardarPoliza(poliza);
         }
+
+
+        [TestMethod]        
+        public void GuardarPoliza()
+        {
+            Poliza poliza = new Poliza()
+            {
+                ClienteId = 1,
+                Nombre = "Poliza todo vida",
+                Descripción = "Cubre incapacidad por accidente",
+                TipoCubrimientoId = 1,
+                Vigencia = DateTime.Now,
+                Periodo = 24,
+                Precio = 120000,
+                Riesgo = Entities.Enums.RiesgosEnum.Bajo,
+                Cobertura = 40
+
+            };
+
+            this.polizasMock.Setup(
+                  it => it.GuardarPoliza(It.IsAny<Poliza>())).Verifiable();
+            
+            this.facade.GuardarPoliza(poliza);
+            polizasMock.Verify();
+        }
+
+
     }
 }

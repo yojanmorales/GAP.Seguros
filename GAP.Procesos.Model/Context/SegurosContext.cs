@@ -1,4 +1,5 @@
-﻿using GAP.Seguros.Entities;
+﻿using GAP.Procesos.Model.Migrations;
+using GAP.Seguros.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,7 +20,7 @@ namespace GAP.Procesos.Model.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Database.SetInitializer(new MigrateDatabaseToLatestVersion<SegurosContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<SegurosContext, Configuration>());
         }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Poliza> Poliza { get; set; }

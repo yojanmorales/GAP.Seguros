@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace GAP.Seguros.Api.Controllers
 {
+    [Authorize]
     public class ClientesController : ApiController
     {
 
@@ -23,7 +24,7 @@ namespace GAP.Seguros.Api.Controllers
 
         // GET api/Clientes
         [HttpGet]
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult ObtenerClientes()
         {
             var clientes = _repository.ObtenerClientes();
             return Ok(clientes);
@@ -32,7 +33,7 @@ namespace GAP.Seguros.Api.Controllers
         [HttpGet]
         public IHttpActionResult ObtenerClientePorId(int clienteId)
         {
-            var cliente =  _repository.ObtenerClientePorId(clienteId);
+            var cliente = _repository.ObtenerClientePorId(clienteId);
             return Ok(cliente);
         }
 
